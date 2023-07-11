@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#191919"
+    tools:context=".Genres">
+    <include
+        layout="@layout/activity_home_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <TextView
+        android:layout_marginStart="17dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:id="@+id/fragartist"
+        android:layout_marginTop="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Here Genres"
+        tools:ignore="HardcodedText" />
+
+</FrameLayout>
