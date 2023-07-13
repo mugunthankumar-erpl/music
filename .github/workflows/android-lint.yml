@@ -29,18 +29,17 @@ jobs:
       - name: Run lint
         run: bash ./gradlew lintDebug
 
-      -name: check lint issues
-       run: |
-         if grep -q "Lint found errors" app/build/reports/lint-results-debug.html; then
-           echo "Lint issues found, failing the workflow."
-           exit 1
-         else
-           echo "No Lint issues found."
-         fi
+      - name: check lint issues
+        run: |
+          if grep -q "Lint found errors" app/build/reports/lint-results-debug.html; then
+            echo "Lint issues found, failing the workflow."
+            exit 1
+          else
+            echo "No Lint issues found."
+          fi
 
       - name: Upload html test report
         uses: actions/upload-artifact@v2
         with:
           name: index.html
           path: app/build/reports/lint-results-debug.html
-
