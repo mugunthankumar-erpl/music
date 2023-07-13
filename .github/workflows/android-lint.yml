@@ -34,6 +34,4 @@ jobs:
         with:
           name: index.html
           path: app/build/reports/lint-results-debug.html
-        runs-on: ubuntu-latest
-        runs:
-          using: node16
+
