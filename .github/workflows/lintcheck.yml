@@ -1,9 +1,6 @@
 name: Android Lint Check
 
 on:
-  push:
-    branches:
-      - master
   pull_request:
     branches:
       - master
@@ -20,16 +17,18 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '1.8'
+          distribution: 'adopt'
 
       - name: Set up Android SDK
         uses: actions/setup-java@v2
         with:
-          java-version: '1.8'
+          java-version: '11'
 
       - name: Run lint checks
         run: ./gradlew lint
 
       - name: Check lint results
+        if: ${{ always() }}
         run: |
           if [[ -f "app/build/reports/lint-results.xml" ]]; then
             echo "Lint issues found:"
