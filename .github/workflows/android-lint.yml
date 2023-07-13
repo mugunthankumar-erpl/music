@@ -3,7 +3,7 @@ name: Android Lint
 on:
   pull_request:
     branches:
-      - master # or specify your desired branch
+      - main # or specify your desired branch
 
 jobs:
   lint:
@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
+          distribution: 'zulu'
 
       - name: Build with Gradle
         run: ./gradlew build
