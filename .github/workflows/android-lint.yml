@@ -1,9 +1,11 @@
 name: Android Lint
 
 on:
+  push:
+    branches: [ "master" ]
   pull_request:
-    branches:
-      - master # or specify your desired branch
+    types: [ opened, edited, synchronize, reopened ]
+    branches-ignore: [ production ]
 
 jobs:
   lint:
