@@ -1,0 +1,40 @@
+name: Android Lint Check
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      - name: Set up Android SDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+
+      - name: Run lint checks
+        run: ./gradlew lint
+
+      - name: Check lint results
+        run: |
+          if [[ -f "app/build/reports/lint-results.xml" ]]; then
+            echo "Lint issues found:"
+            cat "app/build/reports/lint-results.xml"
+            exit 1
+          else
+            echo "No lint issues found."
+          fi
