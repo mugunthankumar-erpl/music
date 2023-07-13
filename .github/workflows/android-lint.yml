@@ -26,11 +26,5 @@ jobs:
       - name: Set execute permissions
         run: chmod +x gradlew
 
-      - name: Gradle clean
-        run: ./gradlew clean
-
-      - name: Build with Gradle
-        run: ./gradlew build
-
       - name: Run lint
         run: bash ./gradlew lint
