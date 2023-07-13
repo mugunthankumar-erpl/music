@@ -3,7 +3,7 @@ name: Lint Check
 on:
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '8'
+          distribution: 'adopt'
 
       - name: Build and Test
         run: |
@@ -24,4 +25,7 @@ jobs:
           ./gradlew testDebug
 
       - name: Run Lint Check
-        run: ./gradlew lint
+        run: ./gradlew lint > lint_report.txt
+
+      - name: Show Lint Check Logs
+        run: cat lint_report.txt
