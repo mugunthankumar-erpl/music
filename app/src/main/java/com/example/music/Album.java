@@ -19,7 +19,7 @@ public class Album extends Fragment {
     View view;
     public ListView albumListView;
     public List<String> albumList;
-    TextView album; // mugunthan
+    TextView album; // mugunthans
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
