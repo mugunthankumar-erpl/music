@@ -3,7 +3,7 @@ name: Android Lint
 on:
   pull_request:
     branches:
-      - main # or specify your desired branch
+      - master # or specify your desired branch
 
 jobs:
   lint:
